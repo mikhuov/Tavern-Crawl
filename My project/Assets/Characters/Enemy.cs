@@ -5,18 +5,26 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 5;
     public int health;
+    public Healthbar healthBar;
+    public CombatSystem combatSystem;
 
     void Start(){
-       health = maxHealth; 
+        health = maxHealth; 
+        healthBar.SetCharacterHealth(maxHealth);
     }
 
     void Update(){
-       
+        combatSystem.Hit();
     }
 
-    void TakeDamage(int damage) {
+    public void TakeDamage(int damage) {
         health -= damage;
+        healthBar.SetCurrentHealth(health);
+    }
+
+    public void Attack() {
+         
     }
 }

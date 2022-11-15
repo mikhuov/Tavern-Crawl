@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour {
     public Tilemap tilemap;
     public GameObject turnPlayer;
     public GameObject player1;
-    public GameObject player2;
+    public GameObject enemy;
     int maxMoveDistance = 5;
 
     void Start() {
@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour {
                 if(turnPlayer != player1) {
                     turnPlayer = player1;
                 } else {
-                    turnPlayer = player2;
+                    turnPlayer = enemy;
                 }
             }
 
