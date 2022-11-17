@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Movement : MonoBehaviour {
-    public Vector3 curosrPosition;
     public Tilemap tilemap;
-    public GameObject turnPlayer;
     public GameObject player1;
     public GameObject enemy;
-    int maxMoveDistance = 5;
+    GameObject turnPlayer;
+    Vector3 curosrPosition;
+    Vector3 characterPosition;
 
     void Start() {
         turnPlayer = player1;
@@ -19,14 +19,19 @@ public class Movement : MonoBehaviour {
         if(Input.GetMouseButtonDown(0)) {
             curosrPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             curosrPosition.z = 0;
-            Vector3Int tilemapPos = tilemap.WorldToCell(curosrPosition);
-            float distanceX = transform.position.x - tilemapPos.x;
-            float distanceY = transform.position.y - tilemapPos.y;
-            Debug.Log(distanceY + " " + distanceX);
+            Vector3Int cursorPos = tilemap.WorldToCell(curosrPosition);
+            Debug.Log("tilemapPos " + cursorPos);
+            characterPosition = Camera.main.ScreenToWorldPoint(turnPlayer.transform.position);
+            Vector3Int charPosition = tilemap.WorldToCell(characterPosition);
+    
 
-            if(distanceX > maxMoveDistance || distanceY > maxMoveDistance ) {
+            float distanceX = charPosition.x - cursorPos.x;
+            float distanceY = charPosition.y - cursorPos.y;
+            Debug.Log("distanceX " + distanceX + ' ' + distanceY);
+
+            if(distanceX <= 5 || distanceY <= 5 ) {
             } else {
-                turnPlayer.transform.position = tilemap.GetCellCenterWorld(tilemapPos);
+                turnPlayer.transform.position = tilemap.GetCellCenterWorld(cursorPos);
                 if(turnPlayer != player1) {
                     turnPlayer = player1;
                 } else {

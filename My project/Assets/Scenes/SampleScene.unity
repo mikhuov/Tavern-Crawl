@@ -1091,9 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde6d84b3af04b647888f9fbf363e994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curosrPosition: {x: 0, y: 0, z: 0}
   tilemap: {fileID: 7305293465669285980}
-  turnPlayer: {fileID: 0}
   player1: {fileID: 1329568972}
   enemy: {fileID: 2130519135}
 --- !u!1 &2130519135
