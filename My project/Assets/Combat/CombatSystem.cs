@@ -15,7 +15,7 @@ public class CombatSystem : MonoBehaviour
 
     public void Hit() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            enemy.TakeDamage(5);
+            player.Attack();
         }
     }
 }

@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour {
             float distanceY = charPosition.y - cursorPos.y;
             Debug.Log("distanceX " + distanceX + ' ' + distanceY);
 
-            if(distanceX <= 5 || distanceY <= 5 ) {
+            if(distanceX > 5 || distanceY > 5 ) {
             } else {
                 turnPlayer.transform.position = tilemap.GetCellCenterWorld(cursorPos);
                 if(turnPlayer != player1) {
