@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour {
     GameObject turnPlayer;
     Vector3 curosrPosition;
     Vector3 characterPosition;
+    int maxMoveDistance = 5;
 
     void Start() {
         turnPlayer = player1;
@@ -20,16 +21,14 @@ public class Movement : MonoBehaviour {
             curosrPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             curosrPosition.z = 0;
             Vector3Int cursorPos = tilemap.WorldToCell(curosrPosition);
-            Debug.Log("tilemapPos " + cursorPos);
             characterPosition = Camera.main.ScreenToWorldPoint(turnPlayer.transform.position);
             Vector3Int charPosition = tilemap.WorldToCell(characterPosition);
     
 
             float distanceX = charPosition.x - cursorPos.x;
             float distanceY = charPosition.y - cursorPos.y;
-            Debug.Log("distanceX " + distanceX + ' ' + distanceY);
 
-            if(distanceX > 5 || distanceY > 5 ) {
+            if(distanceX > maxMoveDistance || distanceY > maxMoveDistance ) {
             } else {
                 turnPlayer.transform.position = tilemap.GetCellCenterWorld(cursorPos);
                 if(turnPlayer != player1) {
