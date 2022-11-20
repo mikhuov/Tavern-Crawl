@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,8 +16,14 @@ public class Enemy : MonoBehaviour
         healthBar.SetCharacterHealth(maxHealth);
     }
 
+    void Death(){
+        if(health <= 0){
+            SceneManager.LoadScene(2);
+        }
+    }
+
     void Update(){
-        combatSystem.Hit();
+        Death();
     }
 
     public void TakeDamage(int damage) {
@@ -27,4 +34,5 @@ public class Enemy : MonoBehaviour
     public void Attack() {
          
     }
+
 }

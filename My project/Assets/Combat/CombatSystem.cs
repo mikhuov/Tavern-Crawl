@@ -9,13 +9,7 @@ public class CombatSystem : MonoBehaviour
     public Healthbar healthBar;
 
 
-    void Start() {
-
-    }
-
     public void Hit() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            player.Attack();
-        }
+        player.Attack();
     }
 }

@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
         healthBar.SetCharacterHealth(maxHealth);
     }
 
+    void Update(){
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            combatSystem.Hit();
+        }
+    }
+
     public void TakeDamage(int damage) {
         health -= damage;
         healthBar.SetCurrentHealth(health);
